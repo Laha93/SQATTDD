@@ -1,12 +1,40 @@
+# language: python
+# python:
+#   - "3.9"  # Specify Python version
+
+# # Install dependencies
+# install:
+#   - pip install -r requirements.txt  # Install the dependencies from your requirements file
+
+# # Run tests using pytest
+# script:
+#   - pytest tests/ --maxfail=1 --disable-warnings -q --junitxml=results.xml # Point to the tests directory
+
 language: python
 python:
-  - "3.9"  # Specify Python version
+  - "3.9"  # Specify the Python version to use for the build
 
-# Install dependencies
+# Install dependencies (including pytest and any other dependencies in requirements.txt)
 install:
-  - pip install -r requirements.txt  # Install the dependencies from your requirements file
+  - pip install -r requirements.txt
 
-# Run tests using pytest
+# This will run before the tests to help debug the environment
+before_script:
+  - echo "Listing files to verify directory contents:"
+  - ls -al  # List the files to check that your tests directory exists
+  - echo "Checking if pytest is installed:"
+  - pip show pytest  # Ensure pytest is installed
+
+# Run the tests using pytest, and output results in JUnit XML format for Travis CI integration
 script:
-  - pytest tests/ --maxfail=1 --disable-warnings -q --junitxml=results.xml # Point to the tests directory
+  - pytest --maxfail=1 --disable-warnings -q --junitxml=results.xml  # Run tests and save the result in XML format
 
+# After success (optional) – to show the results of the tests in the Travis CI log
+after_success:
+  - cat results.xml  # Output the results.xml content (optional but useful for debugging)
+
+# Notifications (optional) – configure email or Slack notifications based on test outcomes
+notifications:
+  email:
+    on_failure: always  # Get email notifications on test failure
+    on_success: never  # Don't notify on success (optional)
