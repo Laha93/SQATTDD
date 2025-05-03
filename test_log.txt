@@ -1,0 +1,249 @@
+===== Test Run: 2025-05-01 20:40:33 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_models.py _____________________
+ImportError while importing test module '/Users/I529012/TDDSqAt/tests/test_models.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_models.py:1: in <module>
+    from app.models import Task
+E   ModuleNotFoundError: No module named 'app'
+=========================== short test summary info ============================
+ERROR tests/test_models.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.04s ===============================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 20:41:24 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_models.py _____________________
+ImportError while importing test module '/Users/I529012/TDDSqAt/tests/test_models.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_models.py:1: in <module>
+    from app.models import Task
+E   ModuleNotFoundError: No module named 'app'
+=========================== short test summary info ============================
+ERROR tests/test_models.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.04s ===============================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 20:44:24 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 1 item
+
+tests/test_models.py .                                                   [100%]
+
+============================== 1 passed in 0.01s ===============================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 20:56:40 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 2 items
+
+tests/test_models.py .F                                                  [100%]
+
+=================================== FAILURES ===================================
+_________________________ test_task_can_be_marked_done _________________________
+
+    def test_task_can_be_marked_done():
+        task = Task("Complete homework")
+>       task.mark_done()
+E       AttributeError: 'Task' object has no attribute 'mark_done'
+
+tests/test_models.py:9: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_models.py::test_task_can_be_marked_done - AttributeError: '...
+========================= 1 failed, 1 passed in 0.06s ==========================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 20:57:17 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 2 items
+
+tests/test_models.py ..                                                  [100%]
+
+============================== 2 passed in 0.02s ===============================
+===== End of Test Run =====
+=== Integration Test: Add + List Tasks ===
+===== Test Run: 2025-05-01 20:58:43 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 2 items
+
+tests/test_models.py ..                                                  [100%]
+
+============================== 2 passed in 0.01s ===============================
+===== End of Test Run =====
+
+
+
+
+
+
+===== Test Run: 2025-05-01 21:48:43 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 1 item
+
+tests/test_integration.py F                                              [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_add_and_list_tasks ____________________________
+
+    def test_add_and_list_tasks():
+>       storage.clear_tasks()
+E       AttributeError: module 'app.storage' has no attribute 'clear_tasks'
+
+tests/test_integration.py:4: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_integration.py::test_add_and_list_tasks - AttributeError: m...
+============================== 1 failed in 0.05s ===============================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 21:49:03 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 1 item
+
+tests/test_integration.py .                                              [100%]
+
+============================== 1 passed in 0.02s ===============================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 21:49:36 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 2 items
+
+tests/test_integration.py .F                                             [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_mark_task_done ______________________________
+
+    def test_mark_task_done():
+        storage.clear_tasks()
+        storage.add_task("Mark me done")
+>       storage.mark_done(0)  # This function does NOT exist yet
+E       AttributeError: module 'app.storage' has no attribute 'mark_done'
+
+tests/test_integration.py:13: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_integration.py::test_mark_task_done - AttributeError: modul...
+========================= 1 failed, 1 passed in 0.03s ==========================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 21:50:16 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 2 items
+
+tests/test_integration.py ..                                             [100%]
+
+============================== 2 passed in 0.02s ===============================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 21:52:18 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 3 items
+
+tests/test_integration.py ..F                                            [100%]
+
+=================================== FAILURES ===================================
+_______________________________ test_delete_task _______________________________
+
+    def test_delete_task():
+        storage.clear_tasks()
+        storage.add_task("Task to delete")
+        assert len(storage.list_tasks()) == 1
+    
+>       storage.delete_task(0)  # 🚨 This doesn't exist yet — expected to fail
+E       AttributeError: module 'app.storage' has no attribute 'delete_task'
+
+tests/test_integration.py:26: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_integration.py::test_delete_task - AttributeError: module '...
+========================= 1 failed, 2 passed in 0.03s ==========================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 21:52:57 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 3 items
+
+tests/test_integration.py ...                                            [100%]
+
+============================== 3 passed in 0.02s ===============================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 21:55:27 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_routes.py _____________________
+ImportError while importing test module '/Users/I529012/TDDSqAt/tests/test_routes.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_routes.py:3: in <module>
+    from app.main import app
+app/main.py:2: in <module>
+    from app.routes import bp  # Import your routes blueprint
+E   ImportError: cannot import name 'bp' from 'app.routes' (/Users/I529012/TDDSqAt/app/routes.py)
+=========================== short test summary info ============================
+ERROR tests/test_routes.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 2.45s ===============================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 21:57:23 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 2 items
+
+tests/test_routes.py ..                                                  [100%]
+
+============================== 2 passed in 0.76s ===============================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 22:44:33 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 4 items
+
+tests/test_routes.py ....                                                [100%]
+
+============================== 4 passed in 0.11s ===============================
+===== End of Test Run =====
+===== Test Run: 2025-05-01 22:47:06 =====
+============================= test session starts ==============================
+platform darwin -- Python 3.13.1, pytest-8.3.5, pluggy-1.5.0
+rootdir: /Users/I529012/TDDSqAt
+collected 1 item
+
+tests/test_functional.py .                                               [100%]
+
+============================== 1 passed in 0.10s ===============================
+===== End of Test Run =====
