@@ -8,5 +8,5 @@ install:
 
 # Run tests using pytest
 script:
-  - pytest tests/ --maxfail=1 --disable-warnings -q  # Point to the tests directory
+  - pytest tests/ --maxfail=1 --disable-warnings -q --junitxml=results.xml # Point to the tests directory
 
