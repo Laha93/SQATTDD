@@ -8,4 +8,5 @@ install:
 
 # Run tests using pytest
 script:
-  - pytest --maxfail=1 --disable-warnings -q  # Run your tests
+  - pytest tests/ --maxfail=1 --disable-warnings -q  # Point to the tests directory
+
